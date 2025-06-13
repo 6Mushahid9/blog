@@ -26,7 +26,7 @@ export default async function Home() {
     <div>
       {data.map((post: simpleBlogCard, i) => (
         <Card key={i}>
-          <img src={urlFor(post.titleImage).url()} alt={post.title} width={500} height={500}/>
+          <img src={urlFor(post.titleImage).url()} alt={post.title} width={200} height={200}/>
           <CardContent>
             <h1>{post.title}</h1>
             <p>{post.smallDescription}</p>
