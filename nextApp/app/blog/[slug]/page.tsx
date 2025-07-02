@@ -140,8 +140,8 @@ export default async function BlogArticle({ params }: Props) {
           <img
             src={urlFor(data.titleImage).url()}
             alt='blog title image'
-            width="70%"
-            className="rounded-lg shadow-xl object-cover mx-auto"
+            // width="50%"
+            className="rounded-lg shadow-xl object-cover mx-auto max-w-1/2 max-h-1/4"
           />
         </div>
       )}
