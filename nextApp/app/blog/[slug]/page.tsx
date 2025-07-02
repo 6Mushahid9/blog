@@ -142,7 +142,7 @@ interface Props {
 }
 
 export default async function BlogArticle({ params }: Props) {
-  const { slug } = await params;
+  const { slug } = params;
   const data: Fullblog = await getData(slug);
 
   return (
