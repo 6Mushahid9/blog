@@ -37,7 +37,7 @@ const components: PortableTextComponents = {
     <u className="underline decoration-blue-500 underline-offset-2">{children}</u>
   ),
   code: ({ children }) => (
-    <code className="bg-gray-100 dark:bg-gray-800 text-pink-600 px-1 py-0.5 rounded text-sm font-mono">
+    <code className="bg-gray-100 dark:bg-gray-800 text-green-600 px-1 py-0.5 rounded text-sm font-mono">
       {children}
     </code>
   ),
@@ -130,10 +130,9 @@ export default async function BlogArticle({ params }: Props) {
   console.log(data);
 
   return (
-    <div className="container mx-auto px-4 py-8"> {/* Added container for better layout */}
-      <h1 className="text-5xl font-extrabold text-center mb-6">
-  <span className="block text-gray-800 dark:text-white">Mushahid Khisal Blog</span>
-  <span className="block text-blue-600">{data.title}</span>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-4xl font-extrabold text-center mb-6">
+  <span className="block text-gray-600 dark:text-gray-300">{data.title}</span>
 </h1>
 
       {data.titleImage && (
@@ -141,33 +140,14 @@ export default async function BlogArticle({ params }: Props) {
           <img
             src={urlFor(data.titleImage).url()}
             alt='blog title image'
-            width={200} // Set appropriate width for title image
-            height={600} // Set appropriate height for title image
+            width="70%"
             className="rounded-lg shadow-xl object-cover mx-auto"
           />
         </div>
       )}
-
-      {/* This div was attempting to use prose, but without custom components,
-          it wouldn't apply styles to the PortableText's generated HTML.
-          We're removing the 'prose' class here as we're handling styling
-          via custom components directly.
-          We're also adding a max-width for better readability. */}
       <div className="max-w-3xl mx-auto">
         <PortableText value={data.Content} components={components}></PortableText>
       </div>
-
-      {/* This section is extraneous for the actual Portable Text rendering and
-          seems to be for testing the prose plugin directly. Removing it
-          to focus on the core functionality. */}
-      {/* <div className="prose">
-        <h1>This is a heading</h1>
-        <p>This is a paragraph with <strong>bold</strong> and <em>italic</em> text.</p>
-        <ul>
-          <li>List item one</li>
-          <li>List item two</li>
-        </ul>
-      </div> */}
     </div>
   );
 }
